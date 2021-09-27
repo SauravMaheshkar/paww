@@ -1,4 +1,6 @@
-# paww ☕️
+# paww 🐾
+
+[![Anaconda-Server Badge](https://anaconda.org/sauravmaheshkar/paww/badges/license.svg)](https://anaconda.org/sauravmaheshkar/paww) 
 
 # Setup
 
