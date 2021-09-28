@@ -57,28 +57,28 @@ class Trainer:
             losses.update(loss.item(), batch_size)
 
             # Perform Gradient Accumulation
-            if config.gradient_accumulation_steps > 1:
-                loss = loss / config.gradient_accumulation_steps
+            if config["gradient_accumulation_steps"] > 1:
+                loss = loss / config["gradient_accumulation_steps"]
 
             # Backward Pass
             loss.backward()
 
             # Gradient Normalization
             grad_norm = torch.nn.utils.clip_grad_norm_(
-                self.model.parameters(), config.max_grad_norm
+                self.model.parameters(), config["max_grad_norm"]
             )
 
             # Update Optimizer
-            if (step + 1) % config.gradient_accumulation_steps == 0:
+            if (step + 1) % config["gradient_accumulation_steps"] == 0:
 
                 self.optimizer.step()
                 self.optimizer.zero_grad()
                 global_step += 1
 
-            end = time.time()
+            end = time.time()  # noqa: F841
 
             # Logging Information
-            if step % config.print_freq == 0 or step == (len(train_loader) - 1):
+            if step % config["print_freq"] == 0 or step == (len(train_loader) - 1):
                 print(
                     "Epoch: [{0}][{1}/{2}] "
                     "Elapsed {remain:s} "
@@ -142,13 +142,13 @@ class Evaluator:
             preds.append(y_preds.to("cpu").numpy())
 
             # Perform Gradient Accumulation
-            if config.gradient_accumulation_steps > 1:
-                loss = loss / config.gradient_accumulation_steps
+            if config["gradient_accumulation_steps"] > 1:
+                loss = loss / config["gradient_accumulation_steps"]
 
-            end = time.time()
+            end = time.time()  # noqa: F841
 
             # Logging Information
-            if step % config.print_freq == 0 or step == (len(valid_dataloader) - 1):
+            if step % config["print_freq"] == 0 or step == (len(valid_dataloader) - 1):
                 print(
                     "EVAL: [{0}/{1}] "
                     "Elapsed {remain:s} "

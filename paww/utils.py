@@ -7,7 +7,6 @@ from typing import Any
 
 import numpy as np
 import torch
-import torch.nn as nn
 
 __all__ = ["init_logger", "set_seed", "asMinutes", "timeSince", "AverageMeter"]
 
@@ -63,4 +62,4 @@ class AverageMeter:
         self.val = val
         self.sum += val * n
         self.count += n
-        self.avg = self.sum / self.count
+        self.avg = self.sum / self.count  # type: ignore
