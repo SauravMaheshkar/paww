@@ -1,9 +1,11 @@
+from typing import Any
+
 import albumentations as A
 
 __all__ = ["get_transforms"]
 
 
-def get_transforms(cfg: dict, data):
+def get_transforms(cfg: dict, data: str) -> Any:
 
     if data == "train":
         return A.Compose(

@@ -30,6 +30,6 @@ repos:
         name: pytest-check
         entry: pytest
         language: python
-        additional_dependencies: [pre-commit, pytest]
+        additional_dependencies: [pre-commit, pytest, torch, timm]
         pass_filenames: false
         always_run: true
