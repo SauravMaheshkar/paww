@@ -4,10 +4,10 @@ import cv2
 import pandas as pd
 import torch
 
-__all__ = ["Dataset"]
+__all__ = ["PawwDataset"]
 
 
-class Dataset(torch.utils.data.Dataset):
+class PawwDataset(torch.utils.data.Dataset):
     def __init__(self, cfg: dict, df: pd.DataFrame, transform: Any = None) -> None:
         self.df = df
         self.file_names = df["file_path"].values
