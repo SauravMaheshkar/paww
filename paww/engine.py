@@ -103,7 +103,7 @@ class Trainer:
                         remain=timeSince(start, float(step + 1) / len(train_loader)),
                         loss=losses,
                         grad_norm=grad_norm,
-                        lr=self.scheduler.get_lr()[0],
+                        lr=self.scheduler.get_last_lr()()[0],
                     )
                 )
 
@@ -111,7 +111,7 @@ class Trainer:
             wandb.log(
                 {
                     f"[fold{fold}] loss": losses.val,
-                    f"[fold{fold}] lr": self.scheduler.get_lr()[0],
+                    f"[fold{fold}] lr": self.scheduler.get_last_lr()()[0],
                 }
             )
         return losses.avg
