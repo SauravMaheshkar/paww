@@ -4,11 +4,23 @@ from typing import Union
 
 import numpy as np
 import torch
+import torch.nn as nn
 import wandb
 
 from .utils import AverageMeter, set_seed, timeSince
 
-__all__ = ["Trainer", "Evaluator"]
+__all__ = ["Trainer", "Evaluator", "RMSELoss"]
+
+
+class RMSELoss(nn.Module):
+    def __init__(self, eps=1e-6):
+        super().__init__()
+        self.mse = nn.MSELoss()
+        self.eps = eps
+
+    def forward(self, yhat, y) -> torch.Tensor:
+        loss = torch.sqrt(self.mse(yhat, y) + self.eps)
+        return loss
 
 
 class Trainer:
