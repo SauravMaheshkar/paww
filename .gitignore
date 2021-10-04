@@ -131,3 +131,6 @@ dmypy.json
 
 # OSX Junk
 **/.DS_Store
+
+# VSCode
+.vscode
