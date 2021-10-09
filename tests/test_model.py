@@ -8,6 +8,7 @@ from .utils import get_dataloader
 # -------- Test a EfficientNet instantiation -------- #
 
 
+@pytest.mark.actions
 def test_efficient() -> None:
 
     cfg = dict(
@@ -20,7 +21,6 @@ def test_efficient() -> None:
 # -------- Test a EfficientNet Forward Pass -------- #
 
 
-@pytest.mark.actions
 def test_forwardpass_efficientnet() -> None:
 
     cfg = dict(
@@ -47,6 +47,7 @@ def test_forwardpass_efficientnet() -> None:
 # -------- Test a ResNet instantiation -------- #
 
 
+@pytest.mark.actions
 def test_resnet() -> None:
 
     cfg = dict(model_name="resnet18", model_type="ResNet", target_size=1)
@@ -57,7 +58,6 @@ def test_resnet() -> None:
 # -------- Test a ResNet Forward Pass -------- #
 
 
-@pytest.mark.actions
 @pytest.mark.skip(reason="still figuring out how to make ResNets work")
 def test_forwardpass_resnet() -> None:
 
