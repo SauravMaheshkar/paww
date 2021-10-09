@@ -20,7 +20,7 @@ def test_efficient() -> None:
 # -------- Test a EfficientNet Forward Pass -------- #
 
 
-@pytest.mark.local
+@pytest.mark.actions
 def test_forwardpass_efficientnet() -> None:
 
     cfg = dict(
@@ -57,7 +57,7 @@ def test_resnet() -> None:
 # -------- Test a ResNet Forward Pass -------- #
 
 
-@pytest.mark.local
+@pytest.mark.actions
 @pytest.mark.skip(reason="still figuring out how to make ResNets work")
 def test_forwardpass_resnet() -> None:
 

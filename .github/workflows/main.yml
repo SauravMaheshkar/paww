@@ -36,4 +36,4 @@ jobs:
         mypy paww
     - name: Test with pytest
       run: |
-        pytest -v -m "not local"
+        pytest -v -m "actions"
