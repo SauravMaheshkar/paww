@@ -1,9 +1,6 @@
 from torch.optim import SGD, Adam, AdamW
-from torch.optim.lr_scheduler import (
-    CosineAnnealingLR,
-    CosineAnnealingWarmRestarts,
-    ReduceLROnPlateau,
-)
+from torch.optim.lr_scheduler import (CosineAnnealingLR, CosineAnnealingWarmRestarts,
+                                      ReduceLROnPlateau)
 
 __all__ = ["get_scheduler", "get_optimizer"]
 
